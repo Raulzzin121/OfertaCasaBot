@@ -40,7 +40,7 @@ def verificar_agendamento():
         time.sleep(1)
 
 # Inicialização do bot
-updater = Updater(TOKEN, use_context=True)
+updater = Updater(TOKEN)
 dp = updater.dispatcher
 
 # Adiciona o comando /start
