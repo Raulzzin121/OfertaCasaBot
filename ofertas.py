@@ -40,11 +40,9 @@ def verificar_agendamento():
         time.sleep(1)
 
 # Inicialização do bot
-updater = Updater(TOKEN, update_queue=None)
-dp = updater.dispatcher
-
+application = Application.builder().token(TOKEN).build()
 # Adiciona o comando /start
-dp.add_handler(CommandHandler("start", start))
+application.add_handler(CommandHandler("start", start))
 
 # Inicia o bot para receber comandos
 updater.start_polling()
@@ -55,4 +53,4 @@ thread = threading.Thread(target=verificar_agendamento)
 thread.start()
 
 # Mantém o bot rodando indefinidamente
-updater.idle()
+application.run_polling()
