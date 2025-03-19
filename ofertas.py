@@ -10,7 +10,7 @@ import os
 import threading
 
 # Token do bot (embutido diretamente - substitua apenas se mudar o token no BotFather)
-TOKEN = "7221577597:AAFGHtg9PXgE8Xe6SVeVYXeJUaHJXXIaH0"
+TOKEN = "7221577597:AAGCUog99zG5h-hke20Z0RCdU4Sti7aWDJk"  # Substitua pelo token correto do BotFather
 
 # Chat ID onde as mensagens serão enviadas (grupo @OfertaCasaBot)
 CHAT_ID = "@OfertaCasaBot"
@@ -23,10 +23,10 @@ def enviar_oferta(bot, job):
     except Exception as e:
         print(f"Erro ao enviar mensagem: {e}")
 
-# Função para o comando /start
-def start(update, context):
+# Função para o comando /start (agora assíncrona)
+async def start(update, context):
     try:
-        update.message.reply_text("Olá! Eu sou o @OfertaCasaBot. Use-me para enviar ofertas ao grupo às 08:00. Aguardando...")
+        await update.message.reply_text("Olá! Eu sou o @OfertaCasaBot. Use-me para enviar ofertas ao grupo às 08:00. Aguardando...")
         print(f"Comando /start recebido de: {update.message.chat_id}")
     except Exception as e:
         print(f"Erro no comando /start: {e}")
